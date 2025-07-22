@@ -1,59 +1,82 @@
-# PlayersFrontend
+# PlayerHub - Frontend
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.1.
+Plataforma web para la gestión de jugadores deportivos. Permite explorar, registrar, editar y administrar jugadores de manera intuitiva, conectándose a una API backend para persistencia y autenticación.
 
-## Development server
+## 🚀 Descripción
 
-To start a local development server, run:
+PlayerHub es una aplicación Angular moderna que facilita la gestión de plantillas deportivas. Incluye autenticación de usuarios, roles de administrador, y un sistema CRUD para jugadores. Utiliza TailwindCSS para estilos y se conecta a un backend Node.js/Express mediante una API REST.
 
-```bash
-ng serve
+## 🛠️ Tecnologías principales
+
+- [Angular 20+](https://angular.dev/)
+- [TailwindCSS 4+](https://tailwindcss.com/)
+- [RxJS](https://rxjs.dev/)
+- [PostCSS](https://postcss.org/)
+- [JWT Decode](https://github.com/auth0/jwt-decode)
+
+## ⚙️ Instalación y configuración
+
+1. **Clona el repositorio:**
+
+   ```bash
+   git clone <url-del-repo>
+   cd players-frontend
+   ```
+
+2. **Instala las dependencias:**
+
+   ```bash
+   npm install
+   # o
+   yarn install
+   ```
+
+3. **Configura TailwindCSS y PostCSS:**
+
+   - TailwindCSS ya está integrado vía PostCSS. La configuración principal está en `src/styles.scss` y `.postcssrc.json`.
+   - Si necesitas personalizar Tailwind, crea un archivo `tailwind.config.js` y ajústalo según tus necesidades.
+
+4. **Inicia el servidor de desarrollo:**
+   ```bash
+   ng serve
+   ```
+   Accede a [http://localhost:4200](http://localhost:4200) en tu navegador.
+
+## 🔑 Autenticación y conexión con backend
+
+- El frontend se conecta a la API: `https://api-players-ekie.onrender.com/api`
+- El sistema de autenticación utiliza JWT. El token se almacena en `localStorage` y se envía en las cabeceras de las peticiones protegidas.
+- Hay roles de usuario y administrador. Solo los administradores pueden crear, editar o eliminar jugadores.
+
+## 📦 Scripts útiles
+
+- `ng serve` — Inicia el servidor de desarrollo
+- `ng build` — Compila la aplicación para producción
+- `ng test` — Ejecuta los tests unitarios
+
+## 🧩 Estructura principal del proyecto
+
+```
+players-frontend/
+├── src/
+│   ├── app/
+│   │   ├── auth/         # Autenticación y registro
+│   │   ├── players/      # Gestión de jugadores
+│   │   ├── shared/       # Componentes y guards reutilizables
+│   │   └── core/         # Layout y header
+│   ├── styles.scss       # Estilos globales y Tailwind
+│   └── main.ts           # Bootstrap Angular
+├── .postcssrc.json       # Configuración PostCSS + Tailwind
+├── angular.json          # Configuración Angular
+└── package.json          # Dependencias y scripts
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## ✨ Funcionalidades principales
 
-## Code scaffolding
+- Registro e inicio de sesión de usuarios
+- Gestión de jugadores (listar, crear, editar, eliminar)
+- Roles: usuario y administrador
+- Interfaz moderna y responsiva con TailwindCSS
+- Manejo de errores y validaciones
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## 📝 Notas
