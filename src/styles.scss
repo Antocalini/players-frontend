@@ -1,0 +1,153 @@
+/* Import Tailwind CSS directives */
+@use "tailwindcss";
+
+/* Import Google Fonts (example: Inter, Oswald, and maybe a more decorative one like Bungee Outline for highlights) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@500;600;700&family=Bungee+Outline&display=swap');
+
+
+/* Define your custom theme variables using @theme directive */
+@theme {
+  --color-primary: #10B981; /* Emerald 500 */
+  --color-secondary: #F59E0B; /* Amber 500 */
+  --color-dark: #1A202C; /* Darker charcoal */
+  --color-light: #F0F2F5; /* Light grey for subtle backgrounds */
+  --color-accent: #EF4444; /* Red 500 */
+  --color-card-bg: #FFFFFF;
+  --color-text-primary: #2D3748; /* Darker text */
+  --color-text-secondary: #718096; /* Medium grey text */
+  --color-gradient-start: #1A202C; /* For header gradient */
+  --color-gradient-end: #2D3748;   /* For header gradient */
+  --color-primary-rgb: 16, 185, 129; /* RGB for #10B981 */
+  --color-secondary-rgb: 245, 158, 11; /* RGB for #F59E0B */
+  --color-accent-rgb: 239, 68, 68; /* RGB for #EF4444 */
+  --color-dark-rgb: 26, 32, 44; /* RGB for #1A202C */
+  --color-light-rgb: 240, 242, 245; /* RGB for #F0F2F5 */
+  --color-text-primary-rgb: 45, 55, 72; /* RGB for #2D3748 */
+  --color-text-secondary-rgb: 113, 128, 150; /* RGB for #718096 */
+  --color-card-bg-rgb: 255, 255, 255; /* RGB for #FFFFFF */
+
+  /* Fonts */
+  --font-display: "Oswald", sans-serif; /* For headings */
+  --font-sans: "Inter", sans-serif; /* For body text */
+  --font-special: "Bungee Outline", cursive; /* For unique elements, used sparingly */
+  --color-primary-rgb: 16, 185, 129; /* RGB for #10B981 */
+  --color-secondary-rgb: 245, 158, 11; /* RGB for #F59E0B */
+  --color-accent-rgb: 239, 68, 68; /* RGB for #EF4444 */
+}
+
+/* Apply base styles referencing your theme variables */
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-light);
+  color: var(--color-text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Reimagined Global utility classes for a nicer look */
+
+.btn {
+  padding: 0.85rem 1.75rem; /* px-7 py-3.5 */
+  border-radius: 0.75rem; /* rounded-xl */
+  font-weight: 700; /* font-bold */
+  text-transform: uppercase;
+  letter-spacing: 0.05em; /* tracking-wide */
+  transition-property: all;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  border: none; /* Ensure no default button border */
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: white;
+  box-shadow: 0 10px 15px -3px rgba(var(--color-primary-rgb), 0.3), 0 4px 6px -4px rgba(var(--color-primary-rgb), 0.1); /* Stronger shadow */
+}
+.btn-primary:hover {
+  background-color: #059669; /* Darker emerald */
+  transform: translateY(-2px); /* Subtle lift */
+  box-shadow: 0 15px 20px -5px rgba(var(--color-primary-rgb), 0.4);
+}
+
+.btn-secondary {
+  background-color: var(--color-secondary);
+  color: white;
+  box-shadow: 0 10px 15px -3px rgba(var(--color-secondary-rgb), 0.3), 0 4px 6px -4px rgba(var(--color-secondary-rgb), 0.1);
+}
+.btn-secondary:hover {
+  background-color: #D97706; /* Darker amber */
+  transform: translateY(-2px);
+  box-shadow: 0 15px 20px -5px rgba(var(--color-secondary-rgb), 0.4);
+}
+
+.btn-danger {
+  background-color: var(--color-accent);
+  color: white;
+  box-shadow: 0 10px 15px -3px rgba(var(--color-accent-rgb), 0.3), 0 4px 6px -4px rgba(var(--color-accent-rgb), 0.1);
+}
+.btn-danger:hover {
+  background-color: #DC2626; /* Darker red */
+  transform: translateY(-2px);
+  box-shadow: 0 15px 20px -5px rgba(var(--color-accent-rgb), 0.4);
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 2px solid var(--color-primary); /* Thicker border with primary color */
+  color: var(--color-primary);
+}
+.btn-outline:hover {
+  background-color: var(--color-primary);
+  color: white;
+  box-shadow: 0 10px 15px -3px rgba(var(--color-primary-rgb), 0.3), 0 4px 6px -4px rgba(var(--color-primary-rgb), 0.1);
+}
+
+.card {
+  background-color: var(--color-card-bg);
+  border-radius: 1rem; /* rounded-xl for softer edges */
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1); /* Stronger, deeper shadow */
+  padding: 2rem; /* p-8 */
+}
+
+.input-field {
+  width: 100%;
+  padding: 0.75rem 1rem; /* px-4 py-3 */
+  border: 1px solid #D1D5DB; /* border border-gray-300 */
+  border-radius: 0.5rem; /* rounded-lg */
+  outline: none;
+  background-color: white;
+  color: var(--color-text-primary);
+}
+.input-field:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 3px rgba(var(--color-primary-rgb), 0.5); /* Stronger focus ring */
+  border-color: var(--color-primary);
+}
+
+.form-label {
+  display: block;
+  font-size: 0.95rem; /* Slightly larger text-base */
+  font-weight: 600; /* font-semibold */
+  color: var(--color-text-secondary);
+  margin-bottom: 0.5rem; /* mb-2 */
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(circle at center, rgba(0,0,0,0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+  opacity: 0.1;
+  z-index: -1;
+  pointer-events: none; /* Allows clicks to pass through */
+}
